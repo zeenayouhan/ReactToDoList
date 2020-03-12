@@ -13,8 +13,10 @@ function App() {
     
     <div className="container">
       <div className="row">
-        <div className="col-5 mx-auto col-md-8 mt-4">
-        <h3>Hi</h3>
+        <div className="col-10 mx-auto col-md-8 mt-4">
+        <h3 className="text-capitalize text-canter">To do Input</h3>
+        <TodoList/>
+        <TodoInput/>
         </div>
         
       </div>
