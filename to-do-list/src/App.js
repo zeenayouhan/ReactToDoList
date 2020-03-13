@@ -5,7 +5,7 @@ import TodoList from './Component/TodoList';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
- const uuid= require('uuid/v1')
+const uuid= require('uuid/v1')
 
 class App extends Component{
   state={
@@ -20,10 +20,10 @@ class App extends Component{
 
     const newItem={
       id:this.state.id,
-      item:this.state.item
+      title:this.state.item
     }
     console.log(newItem);
-
+   
     const updatedItems=[...this.state.items,newItem]
 
     this.setState({
@@ -32,8 +32,14 @@ class App extends Component{
       id:uuid(),
       editItem: false
     })
-
+   
   }
+  clearList=()=>{
+    this.setState({
+      items:[]
+    })
+  }
+
   handleChange=e=>{
     this.setState({
       item: e.target.value
@@ -50,8 +56,9 @@ class App extends Component{
         item={this.state.item} 
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
+        
         />
-        <TodoList items={this.state.items}/>
+        <TodoList items={this.state.items} clearList={this.clearList}/>
         
         </div>
         
