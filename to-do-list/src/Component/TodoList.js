@@ -7,7 +7,8 @@ export default class TodoList extends Component {
             <div>
                 <ul className="list-group my-5">
                     <h3 className="text-capitalize text-center">todo list</h3>
-                    <button type="button" className="btn btn-danger">Clear list</button>
+                    <TodoItem/>
+                    <button type="button" className="btn btn-danger mt-3 btn-block text-capitalize">clear list</button>
                 </ul>
             </div>
         )
