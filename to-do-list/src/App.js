@@ -5,12 +5,12 @@ import TodoList from './Component/TodoList';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const uuid= require('uuid/v1')
+import uuidv4 from 'uuid/v4';
 
 class App extends Component{
   state={
     items:[],
-    id:uuid(),
+    id:uuidv4(),
     item:'',
     editItem: false
   }
@@ -29,7 +29,7 @@ class App extends Component{
     this.setState({
       items:updatedItems,
       item:'', 
-      id:uuid(),
+      id:uuidv4(),
       editItem: false
     })
    
@@ -45,6 +45,14 @@ class App extends Component{
       item: e.target.value
     });
   };
+  handleDelete=id=>{
+    const filterItems=this.state.items.filter(item=>
+      item.id !==id);
+    this.setState({
+      items:filterItems
+        
+    })
+  }
   render() {
     return (  
     
@@ -58,7 +66,7 @@ class App extends Component{
         handleSubmit={this.handleSubmit}
         
         />
-        <TodoList items={this.state.items} clearList={this.clearList}/>
+        <TodoList items={this.state.items} clearList={this.clearList} handleDelete={this.handleDelete}/>
         
         </div>
         
